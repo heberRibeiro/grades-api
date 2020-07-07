@@ -60,13 +60,17 @@ const findOne = async (req, res) => {
 };
 
 const update = async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  console.log(id);
+  await db.model.replaceOne({ _id: id }, data);
+
   if (!req.body) {
     return res.status(400).send({
       message: 'Dados para atualizacao vazio',
     });
   }
-
-  const id = req.params.id;
 
   try {
     res.send({ message: 'Grade atualizado com sucesso' });
