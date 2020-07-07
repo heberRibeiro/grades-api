@@ -2,9 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import { gradeRouter } from './routes/gradeRouter.js';
-import { logger } from './config/logger.js';
-import { db } from './models/index.js';
+import { gradeRouter } from './src/routes/gradeRouter.js';
+import { logger } from './src/config/logger.js';
+import { db } from './src/models/index.js';
 
 (async () => {
   try {
