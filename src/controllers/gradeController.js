@@ -2,8 +2,12 @@ import { db } from '../models/index.js';
 import { logger } from '../config/logger.js';
 
 const create = async (req, res) => {
+  const data = req.body;
+
+  await db.model.create(data);
+
   try {
-    res.send();
+    res.send(JSON.stringify(data));
     logger.info(`POST /grade - ${JSON.stringify()}`);
   } catch (error) {
     res
