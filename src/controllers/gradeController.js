@@ -40,8 +40,13 @@ const findAll = async (req, res) => {
 const findOne = async (req, res) => {
   const id = req.params.id;
 
+  let document;
+  await db.model.findOne({ _id: id }, (err, doc) => {
+    document = JSON.stringify(doc);
+  });
+
   try {
-    res.send();
+    res.send(document);
 
     logger.info(`GET /grade - ${id}`);
   } catch (error) {
