@@ -63,7 +63,6 @@ const update = async (req, res) => {
   const id = req.params.id;
   const data = req.body;
 
-  console.log(id);
   await db.model.replaceOne({ _id: id }, data);
 
   if (!req.body) {
@@ -84,6 +83,8 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   const id = req.params.id;
+
+  await db.model.deleteOne({ _id: id });
 
   try {
     res.send({ message: 'Grade excluido com sucesso' });
